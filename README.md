@@ -1,24 +1,74 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| last_name_kana  | string | null: false |
+| first_name_kana | string | null: false |
+| birthday        | date   | null: false |
 
-Things you may want to cover:
+### association
+- has_many :orders
 
-* Ruby version
+## shops テーブル
+| Column        | Type    | Options                  |
+| ------------- | ------- | ------------------------ |
+| name          | string  | null: false              |
+| email         | string  | null: false              |
+| password      | string  | null: false              |
+| phone_number  | string  | null: false              |
+| postal_code   | string  | null: false, default: "" |
+| area          | integer | null: false              |
+| city          | string  | null: false, default: "" |
+| address       | string  | null: false, default: "" |
+| building_name | string  |                          |
 
-* System dependencies
+### association
+- has_many :meals
 
-* Configuration
+## meals テーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+| explanation | text       | null: false                    |
+| genre       | integer    | null: false                    |
+| protein     | integer    | null: false                    |
+| fat         | integer    | null: false                    |
+| carbo       | integer    | null: false                    |
+| price       | integer    | null: false                    |
+| shop        | references | null: false, foreign_key: true |
 
-* Database creation
 
-* Database initialization
+### association
+- has_one :order
+- belongs_to :shop
 
-* How to run the test suite
+## orders テーブル
+| Column | Type        | Options                        |
+| ------ | ----------- | ------------------------------ |
+| meal   | references  | null: false, foreign_key: true |
+| user   | references  | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+### association
+- belongs_to :user
+- belongs_to :meal
+- has_one :address
 
-* Deployment instructions
+## addresses テーブル
+| Column         | Type       | Options                        |
+| ------------- | -----------| ------------------------------ |
+| postal_code   | string     | null: false, default: ""       |
+| area          | integer    | null: false                    |
+| city          | string     | null: false, default: ""       |
+| address       | string     | null: false, default: ""       |
+| building_name | string     |                                |
+| phone_number  | string     | null: false, default: ""       |
+| order         | references | null: false, foreign_key: true |
 
-* ...
+### association
+- belongs_to :order
