@@ -1,0 +1,102 @@
+<div class="meals-sell-contents">
+  <header class="meals-sell-header">
+    <%= link_to image_tag("mh-foods-logo.png" , size: '150x100'), "/" %>
+  </header>
+
+  <div class="meals-sell-main">
+    <h2 class="meals-sell-title">料理の情報を入力</h2>
+    <%= form_with(model: @meal, local: true) do |f| %>
+
+    <%# エラー発生時にメッセージが表示される %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <%# //エラー発生時にメッセージが表示される %>
+
+    <%# 料理画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        料理画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"meal-image" %>
+      </div>
+    </div>
+    <%# /料理画像 %>
+    <%# 料理名と説明 %>
+    <div class="new-meals">
+      <div class="weight-bold-text">
+        料理名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"meals-text", id:"meal-name", placeholder:"料理名（40文字まで)" %>
+      <div class="meals-explain">
+        <div class="weight-bold-text">
+          料理の概要
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :explanation, class:"meals-text", id:"meal-info", placeholder:"料理の説明（1,000文字まで）" ,rows:"7" %>
+      </div>
+    </div>
+    <%# /料理名と説明 %>
+
+    <%# 料理の詳細 %>
+    <div class="meals-detail">
+      <div class="weight-bold-text">料理の詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          ジャンル
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"meal-genre"}) %>
+        <div class="weight-bold-text">
+          栄養成分表示
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :protein, class:"meals-nutrition", id:"meal-nutrition", placeholder:"タンパク質（g)" %>
+        <%= f.text_area :fat, class:"meals-nutrition", id:"meal-nutrition", placeholder:"脂質（g)" %>
+        <%= f.text_area :carbo, class:"meals-nutrition", id:"meal-nutrition", placeholder:"炭水化物（g)" %>
+      </div>
+    </div>
+    <%# /商品の詳細 %>
+
+    <%# 販売価格 %>
+    <div class="sell-price">
+      <div class="weight-bold-text question-text">
+        <span>販売価格<br>(¥1〜9,999,999)</span>
+        <a class="question" href="#">?</a>
+      </div>
+      <div class="price-content">
+        <div class="price-text">
+          <span>価格</span>
+          <span class="indispensable">必須</span>
+        </div>
+        <span class="sell-yen">¥</span>
+        <%= f.text_field :price, class:"price-input", id:"meal-price", placeholder:"例）300" %>
+      </div>
+    </div>
+    <%# /販売価格 %>
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "登録する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="meals-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">Muscle & Healthy foods利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag("mh-foods-logo.png" , size: '150x100'), "/" %>
+    <p class="inc">
+      ©︎Muscle & Healthy foods,Inc.
+    </p>
+  </footer>
+</div>

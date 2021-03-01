@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header {
+  width: 100vw;
+  padding: 2vh 15vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  display: flex;
+  list-style: none;
+}
+
+.mf-delivery-icon {
+  width: 5vw;
+}
+
+.mf-delivery-logo-title {
+  font-size: 30px;
+  text-decoration: none;
+  color: pink;
+}
+
+.search-form {
+  width: 20vw;
+  height: 5vh;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.search-form>.input-box {
+  width: 100%;
+  height: 5vh;
+  padding-left: 10px;
+  margin-right: 5px;
+}
+
+.search-button {
+  width: 5vh;
+  border: 0;
+  cursor: pointer;
+  background-color: #3ccace;
+  padding: 8px;
+}
+
+.search-icon {
+  width: 100%;
+}
+
+.nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0;
+  background-color: #272727;
+}
+
+.lists-left {
+  display: flex;
+  list-style: none;
+}
+
+.category-list {
+  text-decoration: none;
+  margin-right: 3vw;
+  margin-left: 2vw;
+  color: white;
+  list-style: none;
+}
+
+.lists-center {
+  display: flex;
+  list-style: none;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 2vw;
+  color: white;
+}
+
+.sign-up {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: white;
+}
+
+.lists-right {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+}
+
+.user-nickname, .shop-name {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: white;
+  font-weight: bold;
+}
+
+
+.logout {
+  text-decoration: none;
+  color: white;
+}

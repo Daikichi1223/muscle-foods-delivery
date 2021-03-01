@@ -1,0 +1,84 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+  <%# 料理一覧 %>
+  <div class='meal-contents'>
+    <h2 class='title'>ピックアップ料理</h2>
+    <%= link_to '新規登録料理', "#", class: "subtitle" %>
+    <ul class='meal-lists'>
+
+    <% @meals.each do |meal| %>
+      <li class='list'>
+        <%= link_to "#" do %>
+        <div class='meal-img-content'>
+          <%#= image_tag meal.image, class: "meal-img" %>
+        </div>
+        <div class='meal-info'>
+          <h3 class='meal-name'>
+            <%= meal.name %>
+          </h3>
+          <h3 class='meal-explanation'>
+            <%= meal.explanation %>
+          </h3>
+          <h3 class='meal-nutrition'>
+            P : <%= meal.protein %>
+          </h3>
+          <h3 class='meal-nutrition'>
+            F : <%= meal.fat %>
+          </h3>
+          <h3 class='meal-nutrition'>
+            C : <%= meal.carbo %>
+          </h3>
+          <div class='meal-price'>
+            <span><%= meal.price %>円</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+
+      <%# 料理がない場合、ダミーの料理が表示される %>
+    <% if @meals = nil %>
+      <li class='list'>
+        <%= link_to '#' do %>
+        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "meal-img" %>
+        <div class='meal-info'>
+          <h3 class='meal-name'>
+            料理を登録してね！
+          </h3>
+          <h3 class='meal-explanation'>
+            料理を登録してね！
+          </h3>
+          <div class='meal-price'>
+            <span>99999999円<br>(税込み)</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+      <%# //料理がない場合、ダミーの料理が表示される %>
+    </ul>
+  </div>
+  <%# /料理一覧 %>
+</div>
+<div class='purchase-btn'>
+  <%# if shop_signed_in? %>
+    <span class='purchase-btn-text'>料理の登録</span>
+    <a href="meals/new">
+      <%= image_tag 'cooking_chef.png' , size: '150x80' ,class: "purchase-btn-icon" %>
+    </a>
+  <%# else %>
+    <span class='purchase-btn-text'>料理の登録</span>
+    <a href="shops/sign_in">
+      <%#= image_tag 'cooking_chef.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  <%# end %>
+</div>
+<%= render "shared/footer" %>
