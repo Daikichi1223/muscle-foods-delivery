@@ -11,7 +11,7 @@
       <li class='list'>
         <%= link_to "#" do %>
         <div class='meal-img-content'>
-          <%#= image_tag meal.image, class: "meal-img" %>
+          <%= image_tag meal.image, class: "meal-img" %>
         </div>
         <div class='meal-info'>
           <h3 class='meal-name'>
@@ -70,15 +70,16 @@
   <%# /料理一覧 %>
 </div>
 <div class='purchase-btn'>
-  <%# if shop_signed_in? %>
+  <% if shop_signed_in? %>
     <span class='purchase-btn-text'>料理の登録</span>
     <a href="meals/new">
       <%= image_tag 'cooking_chef.png' , size: '150x80' ,class: "purchase-btn-icon" %>
     </a>
-  <%# else %>
+  <% else %>
     <span class='purchase-btn-text'>料理の登録</span>
     <a href="shops/sign_in">
-      <%#= image_tag 'cooking_chef.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-  <%# end %>
+      <%= image_tag 'cooking_chef.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+    </a>
+  <% end %>
 </div>
 <%= render "shared/footer" %>
