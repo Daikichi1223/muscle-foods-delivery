@@ -18,3 +18,12 @@ ja:
        city: 市区町村名
        address: 番地
        area_id: 都道府県
+     meal:
+       image: 料理画像
+       name: 料理名
+       explanation: 料理概要
+       protein: タンパク質量
+       fat: 脂質量
+       carbo: 炭水化物量
+       price: 値段
+       genre_id: ジャンル
