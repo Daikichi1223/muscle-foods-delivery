@@ -70,15 +70,15 @@
   <%# /料理一覧 %>
 </div>
 <div class='purchase-btn'>
-  <%# if shop_signed_in? %>
+  <% if shop_signed_in? %>
     <span class='purchase-btn-text'>料理の登録</span>
     <a href="meals/new">
       <%= image_tag 'cooking_chef.png' , size: '150x80' ,class: "purchase-btn-icon" %>
     </a>
-  <%# else %>
+  <% else %>
     <span class='purchase-btn-text'>料理の登録</span>
     <a href="shops/sign_in">
-      <%#= image_tag 'cooking_chef.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-  <%# end %>
+      <%= image_tag 'cooking_chef.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  <% end %>
 </div>
 <%= render "shared/footer" %>
