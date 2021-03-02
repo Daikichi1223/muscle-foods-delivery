@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
@@ -9,6 +10,13 @@ class ApplicationController < ActionController::Base
        :first_name,
        :last_name_kana,
        :first_name_kana,
-       :birthday])
+       :birthday,
+       :name,
+       :phone_number,
+       :postal_code,
+       :area_id,
+       :city,
+       :address,
+       :building_name])
   end
 end

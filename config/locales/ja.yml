@@ -8,3 +8,13 @@ ja:
        first_name: 名前
        last_name_kana: 名字カナ
        first_name_kana: 名前カナ
+     shop:
+       email: Eメール
+       password: パスワード
+       password_confirmation: パスワード（確認用）
+       name: 店舗名
+       phone_number: 電話番号
+       postal_code: 郵便番号
+       city: 市区町村名
+       address: 番地
+       area_id: 都道府県
