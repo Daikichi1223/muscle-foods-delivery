@@ -1,7 +1,4 @@
 class MealsController < ApplicationController
-before_action :authenticate_user!, except: [:index]
-before_action :move_to_index, except: [:index]
-
   def index
     @meals = Meal.all.order("created_at DESC")
   end
