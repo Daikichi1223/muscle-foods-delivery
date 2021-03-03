@@ -1,0 +1,89 @@
+<%= render "shared/header" %>
+
+<%# 料理の概要 %>
+<div class="meal-show">
+  <div class="meal-box">
+    <h2 class="name">
+      <%= @meal.name %>
+    </h2>
+    <div class="meal-img-content">
+      <%= image_tag "meal-sample.png" ,class:"meal-box-img" %>
+    </div>
+    <div class="meal-price-box">
+      <span class="meal-price">
+        ¥ <%= @meal.price %>
+      </span>
+    </div>
+
+    <%# ログインしているショップユーザーと料理を登録しているショップユーザーが、同一の場合とそうではない場合での処理の分岐 %>
+      <% if shop_signed_in? && current_shop.id == @meal.shop_id %>
+        <%= link_to "商品の編集", "#", method: :get, class: "meal-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", "#", method: :delete, class:"meal-destroy" %>
+      <% else %>
+        <%= link_to "購入画面に進む", "#" ,class:"meal-red-btn"%>
+      <% end%>
+    <%# //ログインしているショップユーザーと料理を登録しているショップユーザーが、同一の場合とそうではない場合での処理の分岐 %>
+
+    <div class="meal-explain-box">
+      <span><%= @meal.explanation %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-meal">出品者</th>
+          <td class="detail-value"><%= @meal.shop.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-meal">ジャンル</th>
+          <td class="detail-value"><%= @meal.genre.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-meal">タンパク質量</th>
+          <td class="detail-value"><%= @meal.protein %></td>
+        </tr>
+        <tr>
+          <th class="detail-meal">脂質量</th>
+          <td class="detail-value"><%= @meal.fat %></td>
+        </tr>
+        <tr>
+          <th class="detail-meal">炭水化物量</th>
+          <td class="detail-value"><%= @meal.carbo %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+    </div>
+  </div>
+  <%# /料理の概要 %>
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="comment-btn">
+        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+  <div class="links">
+    <a href="#" class="change-meal-btn">
+      ＜ 前の商品
+    </a>
+    <a href="#" class="change-meal-btn">
+      後ろの商品 ＞
+    </a>
+  </div>
+  <a href="#" class="another-meal"><%= @meal.genre.name %>のカテゴリーをもっと見る</a>
+</div>
+
+<%= render "shared/footer" %>
