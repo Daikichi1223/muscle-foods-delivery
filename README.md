@@ -68,7 +68,7 @@
 | address       | string     | null: false, default: ""       |
 | building_name | string     |                                |
 | phone_number  | string     | null: false, default: ""       |
-| order         | references | null: false, foreign_key: true |
+| address       | references | null: false, foreign_key: true |
 
 ### association
-- belongs_to :order
+- belongs_to :address
