@@ -1,8 +1,9 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :meal_id, :postal_code, :area_id, :city, :address, :building_name, :phone_number
+  attr_accessor :user_id, :meal_id, :postal_code, :area_id, :city, :address, :building_name, :phone_number, :token
 
   with_options presence: true do
+    validates :token, presence: { message: "を正しく入力してください"}
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "は(-)を含めてください"}
     validates :city
     validates :address

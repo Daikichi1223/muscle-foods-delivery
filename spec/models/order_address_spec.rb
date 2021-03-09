@@ -8,7 +8,7 @@ describe  OrderAddress do
 
   describe '商品購入機能' do
     context '商品購入がうまくいく時' do
-      it "postal_code、area_id、city、addressとphone_numberが存在すれば購入できる" do
+      it "token、postal_code、area_id、city、addressとphone_numberが存在すれば購入できる" do
         expect(@order_address).to be_valid
       end
       it "phone_numberが10桁で購入できる" do
@@ -25,6 +25,12 @@ describe  OrderAddress do
       end
     end
     context '商品購入がうまくいかない時' do
+      it "tokenが空であれば購入できない" do
+        @order_address.token = ""
+        sleep(1)
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("クレジットカード情報を正しく入力してください")
+      end
       it "postal_codeが空であれば購入できない" do
         @order_address.postal_code = ""
         sleep(1)
