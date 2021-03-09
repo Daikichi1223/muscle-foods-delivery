@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "meals#index"
   resources :meals, only: [:index, :new, :create, :show] do
-    resources :orders, only: [:index]
+    resources :orders, only: [:index, :create]
   end
 end
