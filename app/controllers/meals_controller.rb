@@ -20,6 +20,15 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
   end
 
+  def edit
+    @meal = Meal.find(params[:id])
+  end
+
+  def update
+    meal = Meal.find(params[:id])
+    meal.update(meal_params)
+  end
+
   private
   def meal_params
     params.require(:meal).permit(:name, :explanation, :genre_id, :protein, :fat, :carbo, :price, :image).merge(shop_id: current_shop.id)

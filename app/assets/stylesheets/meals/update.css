@@ -1,0 +1,9 @@
+.completion-view-header {
+  text-align: center;
+}
+
+.success {
+  font-size: 30px;
+  text-align: center;
+  margin: 5vh;
+}

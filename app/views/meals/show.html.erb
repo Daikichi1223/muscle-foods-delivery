@@ -17,7 +17,7 @@
 
     <%# ログインしているショップユーザーと料理を登録しているショップユーザーが、同一の場合とそうではない場合での処理の分岐 %>
       <% if shop_signed_in? && current_shop.id == @meal.shop_id %>
-        <%= link_to "商品の編集", "#", method: :get, class: "meal-red-btn" %>
+        <%= link_to "商品の編集", edit_meal_path(@meal.id), method: :get, class: "meal-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", "#", method: :delete, class:"meal-destroy" %>
       <% else %>
